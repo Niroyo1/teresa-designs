@@ -7,7 +7,7 @@ import '@fontsource/poppins/700.css';
 import './styles.css';
 import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import GeneradorPage from './generador/generadorPage';
+import GeneradorPage from './generador/GeneradorPage';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
