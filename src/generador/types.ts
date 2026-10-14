@@ -17,4 +17,6 @@ export type PhotoLayer = {
   x: number;
   y: number;
   radius: number;
-};
+  circle: boolean;
+}
+

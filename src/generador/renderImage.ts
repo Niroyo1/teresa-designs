@@ -39,17 +39,37 @@ export function renderImage(
   ctx.fillStyle = cssColor('--color-cream', '#f7f0e8');
   ctx.fillRect(0, 0, width, height);
 
-  if (photo) {
-    const drawWidth = (width * photo.scale) / 100;
-    const drawHeight = (drawWidth * photo.image.naturalHeight) / photo.image.naturalWidth;
-    const left = (width * photo.x) / 100 - drawWidth / 2;
-    const top = (height * photo.y) / 100 - drawHeight / 2;
-    const radius = (Math.min(drawWidth, drawHeight) / 2) * (photo.radius / 100);
+    if (photo) {
+    const centerX = (width * photo.x) / 100;
+    const centerY = (height * photo.y) / 100;
+    const size = (width * photo.scale) / 100;
+    const { naturalWidth, naturalHeight } = photo.image;
+
     ctx.save();
     ctx.beginPath();
-    ctx.roundRect(left, top, drawWidth, drawHeight, radius);
-    ctx.clip();
-    ctx.drawImage(photo.image, left, top, drawWidth, drawHeight);
+    if (photo.circle) {
+      const ratio = size / Math.min(naturalWidth, naturalHeight);
+      const drawWidth = naturalWidth * ratio;
+      const drawHeight = naturalHeight * ratio;
+      ctx.arc(centerX, centerY, size / 2, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.drawImage(
+        photo.image,
+        centerX - drawWidth / 2,
+        centerY - drawHeight / 2,
+        drawWidth,
+        drawHeight
+      );
+    } else {
+      const drawWidth = size;
+      const drawHeight = (size * naturalHeight) / naturalWidth;
+      const left = centerX - drawWidth / 2;
+      const top = centerY - drawHeight / 2;
+      const radius = (Math.min(drawWidth, drawHeight) / 2) * (photo.radius / 100);
+      ctx.roundRect(left, top, drawWidth, drawHeight, radius);
+      ctx.clip();
+      ctx.drawImage(photo.image, left, top, drawWidth, drawHeight);
+    }
     ctx.restore();
   }
 

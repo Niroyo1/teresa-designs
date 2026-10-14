@@ -22,7 +22,7 @@ export function useGenerator() {
     const url = URL.createObjectURL(file);
     const image = await loadImage(url);
     URL.revokeObjectURL(url);
-    setPhoto({ image, scale: 80, x: 50, y: 50, radius: 0 });
+    setPhoto({ image, scale: 80, x: 50, y: 50, radius: 0, circle: false });
   };
 
   const updatePhoto = (patch: Partial<Omit<PhotoLayer, 'image'>>) =>

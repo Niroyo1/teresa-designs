@@ -36,7 +36,24 @@ export default function PhotoControls({ photo, onAdd, onChange, onRemove }: Prop
           <Field label="Tamaño" value={photo.scale} min={5} max={300} onChange={(scale) => onChange({ scale })} />
           <Field label="Posición X" value={photo.x} min={0} max={100} onChange={(x) => onChange({ x })} />
           <Field label="Posición Y" value={photo.y} min={0} max={100} onChange={(y) => onChange({ y })} />
-          <Field label="Redondeo" value={photo.radius} min={0} max={100} onChange={(radius) => onChange({ radius })} />
+           <label className="flex items-center gap-3 text-sm font-bold">
+            <input
+              type="checkbox"
+              className="size-4 accent-ink"
+              checked={photo.circle}
+              onChange={(event) => onChange({ circle: event.target.checked })}
+            />
+            Recorte circular
+          </label>
+          {!photo.circle && (
+            <Field
+              label="Redondeo"
+              value={photo.radius}
+              min={0}
+              max={100}
+              onChange={(radius) => onChange({ radius })}
+            />
+          )}
         </>
       )}
     </div>
