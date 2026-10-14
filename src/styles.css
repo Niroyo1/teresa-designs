@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Roca Two';
+  src: url('./fonts/RocaTwo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --color-cream: #f7f0e8;
+  --color-ink: #14583a;
+  --font-body: 'Poppins', sans-serif;
+  --font-display: 'Six Caps', sans-serif;
+  --font-title: 'Roca Two', serif;
+}
+
+@layer base {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+[data-theme='inverted'] {
+  --color-cream: #14583a;
+  --color-ink: #f7f0e8;
+}
