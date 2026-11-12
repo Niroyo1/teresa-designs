@@ -7,6 +7,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Gala';
+  src: url('./fonts/Gala-Light.ttf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme {
   --color-cream: #f7f0e8;
   --color-ink: #14583a;

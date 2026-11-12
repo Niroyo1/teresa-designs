@@ -5,10 +5,14 @@ import { FORMATS } from './constants';
 import { downloadCanvas } from './downloadCanvas';
 import { useGenerator } from './useGenerator';
 import FormatPicker from './components/FormatPicker';
+import IconControls from './components/IconControls';
+import LineControls from './components/LineControls';
+import LogoControls from './components/LogoControls';
 import PhotoControls from './components/PhotoControls';
 import PreviewCanvas from './components/PreviewCanvas';
 import Section from './components/Section';
 import TextControls from './components/TextControls';
+import ThemePicker from './components/ThemePicker';
 
 export default function GeneradorPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -30,11 +34,18 @@ export default function GeneradorPage() {
             format={generator.format}
             photo={generator.photo}
             texts={generator.texts}
+            icons={generator.icons}
+            logo={generator.logo}
+            theme={generator.theme}
+            lines={generator.lines}
           />
         </div>
         <div className="flex flex-col gap-8 pb-8">
           <Section title="Formato">
             <FormatPicker value={generator.format} onChange={generator.setFormat} />
+          </Section>
+          <Section title="Tema">
+            <ThemePicker value={generator.theme} onChange={generator.setTheme} />
           </Section>
           <Section title="Foto">
             <PhotoControls
@@ -42,6 +53,30 @@ export default function GeneradorPage() {
               onAdd={generator.addPhoto}
               onChange={generator.updatePhoto}
               onRemove={generator.removePhoto}
+            />
+          </Section>
+          <Section title="Logo">
+            <LogoControls
+              logo={generator.logo}
+              onAdd={generator.addLogo}
+              onChange={generator.updateLogo}
+              onRemove={generator.removeLogo}
+            />
+          </Section>
+          <Section title="Iconos">
+            <IconControls
+              icons={generator.icons}
+              onAdd={generator.addIcon}
+              onChange={generator.updateIcon}
+              onRemove={generator.removeIcon}
+            />
+          </Section>
+          <Section title="Líneas">
+            <LineControls
+              lines={generator.lines}
+              onAdd={generator.addLine}
+              onChange={generator.updateLine}
+              onRemove={generator.removeLine}
             />
           </Section>
           <Section title="Textos">

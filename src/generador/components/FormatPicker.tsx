@@ -5,7 +5,7 @@ type Props = { value: FormatKey; onChange: (format: FormatKey) => void };
 
 export default function FormatPicker({ value, onChange }: Props) {
   return (
-    <div className="flex gap-2">
+    <div className="grid grid-cols-2 gap-2">
       {(Object.keys(FORMATS) as FormatKey[]).map((key) => (
         <button
           key={key}

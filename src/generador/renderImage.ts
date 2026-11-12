@@ -1,5 +1,16 @@
 import { FONTS, FORMATS } from './constants';
-import type { FormatKey, PhotoLayer, TextLayer } from './types';
+import { drawIcon } from './icons';
+import { drawLine } from './lines';
+import { drawLogo, LOGO_TEXT, logoFont } from './logo';
+import type {
+  FormatKey,
+  IconLayer,
+  LineLayer,
+  LogoLayer,
+  PhotoLayer,
+  TextLayer,
+  ThemeKey,
+} from './types';
 
 const cssColor = (name: string, fallback: string) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
@@ -18,17 +29,23 @@ export function loadImage(src: string) {
   });
 }
 
-export async function loadFonts(texts: TextLayer[]) {
-  await Promise.all(
-    texts.map((layer) => document.fonts.load(fontSpec(layer), layer.text || 'A'))
-  );
+export async function loadFonts(texts: TextLayer[], logo: LogoLayer | null = null) {
+  await Promise.all([
+    ...texts.map((layer) => document.fonts.load(fontSpec(layer), layer.text || 'A')),
+    ...(logo ? [document.fonts.load(logoFont(logo.size, logo.font), LOGO_TEXT)] : []),
+    ...(logo?.detail === 'tagline' ? [document.fonts.load('400 40px "Six Caps"', 'CAFÉ')] : []),
+  ]);
 }
 
 export function renderImage(
   canvas: HTMLCanvasElement,
   format: FormatKey,
   photo: PhotoLayer | null,
-  texts: TextLayer[]
+  texts: TextLayer[],
+  icons: IconLayer[] = [],
+  logo: LogoLayer | null = null,
+  theme: ThemeKey = 'default',
+  lines: LineLayer[] = []
 ) {
   const { width, height } = FORMATS[format];
   canvas.width = width;
@@ -36,7 +53,12 @@ export function renderImage(
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  ctx.fillStyle = cssColor('--color-cream', '#f7f0e8');
+  const cream = cssColor('--color-cream', '#f7f0e8');
+  const ink = cssColor('--color-ink', '#14583a');
+  const background = theme === 'inverted' ? ink : cream;
+  const foreground = theme === 'inverted' ? cream : ink;
+
+  ctx.fillStyle = background;
   ctx.fillRect(0, 0, width, height);
 
     if (photo) {
@@ -73,7 +95,11 @@ export function renderImage(
     ctx.restore();
   }
 
-  ctx.fillStyle = cssColor('--color-ink', '#14583a');
+  if (logo) drawLogo(ctx, logo, width, height, foreground);
+  lines.forEach((layer) => drawLine(ctx, layer, width, height, foreground));
+  icons.forEach((layer) => drawIcon(ctx, layer, width, height, foreground));
+
+  ctx.fillStyle = foreground;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   texts.forEach((layer) => {
@@ -85,4 +111,12 @@ export function renderImage(
       ctx.fillText(line, (width * layer.x) / 100, startY + index * lineHeight);
     });
   });
+
+  if (format === 'highlight') {
+    ctx.globalCompositeOperation = 'destination-in';
+    ctx.beginPath();
+    ctx.arc(width / 2, height / 2, width / 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalCompositeOperation = 'source-over';
+  }
 }
