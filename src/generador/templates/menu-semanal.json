@@ -18,7 +18,7 @@
       "maxWidth": 0,
       "x": 40,
       "y": 10,
-      "id": "1"
+      "id": "37"
     },
     {
       "text": "Martes",
@@ -34,8 +34,8 @@
       "uppercase": false,
       "maxWidth": 0,
       "x": 98,
-      "y": 19.2188,
-      "id": "5"
+      "y": 19.7917,
+      "id": "38"
     },
     {
       "text": "Milanesa de zapallito con huevo a la plancha y cuñas de papa.",
@@ -51,8 +51,8 @@
       "uppercase": false,
       "maxWidth": 90,
       "x": 5,
-      "y": 26.7188,
-      "id": "6",
+      "y": 27.8646,
+      "id": "39",
       "field": {
         "label": "Comida del martes",
         "type": "text",
@@ -74,8 +74,8 @@
       "uppercase": false,
       "maxWidth": 0,
       "x": 98,
-      "y": 35.7812,
-      "id": "9"
+      "y": 35.9375,
+      "id": "40"
     },
     {
       "text": "Ravioles de ricota y espinaca con salsa fileto.",
@@ -91,8 +91,8 @@
       "uppercase": false,
       "maxWidth": 90,
       "x": 5,
-      "y": 43.2812,
-      "id": "10",
+      "y": 44.0104,
+      "id": "41",
       "field": {
         "label": "Comida del miércoles",
         "type": "text",
@@ -114,8 +114,8 @@
       "uppercase": false,
       "maxWidth": 0,
       "x": 98,
-      "y": 52.3438,
-      "id": "13"
+      "y": 52.0833,
+      "id": "42"
     },
     {
       "text": "Tarta de zapallitos y queso con ensalada fresca.",
@@ -131,8 +131,8 @@
       "uppercase": false,
       "maxWidth": 90,
       "x": 5,
-      "y": 59.8437,
-      "id": "14",
+      "y": 60.1562,
+      "id": "43",
       "field": {
         "label": "Comida del jueves",
         "type": "text",
@@ -154,8 +154,8 @@
       "uppercase": false,
       "maxWidth": 0,
       "x": 98,
-      "y": 68.9062,
-      "id": "17"
+      "y": 68.2292,
+      "id": "44"
     },
     {
       "text": "Pollo al horno con puré de calabaza.",
@@ -171,8 +171,8 @@
       "uppercase": false,
       "maxWidth": 90,
       "x": 5,
-      "y": 76.4062,
-      "id": "18",
+      "y": 76.3021,
+      "id": "45",
       "field": {
         "label": "Comida del viernes",
         "type": "text",
@@ -181,24 +181,7 @@
       }
     },
     {
-      "text": "Cada menú",
-      "font": "Gala",
-      "size": 56,
-      "bold": 1,
-      "inverted": false,
-      "align": "left",
-      "isBold": false,
-      "italic": false,
-      "underline": false,
-      "strike": false,
-      "uppercase": false,
-      "maxWidth": 0,
-      "x": 5,
-      "y": 87.0833,
-      "id": "21"
-    },
-    {
-      "text": "$270",
+      "text": "Todos a $270",
       "font": "Roca Two",
       "size": 110,
       "bold": 0,
@@ -212,7 +195,7 @@
       "maxWidth": 0,
       "x": 97,
       "y": 87.0833,
-      "id": "22",
+      "id": "47",
       "field": {
         "label": "Precio",
         "type": "price",
@@ -235,7 +218,7 @@
       "maxWidth": 0,
       "x": 5,
       "y": 97,
-      "id": "23"
+      "id": "48"
     },
     {
       "text": "Teresa",
@@ -252,7 +235,7 @@
       "maxWidth": 0,
       "x": 97,
       "y": 97,
-      "id": "24"
+      "id": "49"
     }
   ],
   "icons": [],
@@ -267,19 +250,19 @@
       "angle": 0,
       "x": 50,
       "y": 69,
-      "id": "2"
+      "id": "50"
     },
     {
       "style": "solid",
-      "length": 40,
+      "length": 70,
       "thickness": 8,
       "size": 40,
       "radius": 0,
       "inverted": true,
       "angle": 0,
       "x": 10,
-      "y": 19.2188,
-      "id": "3"
+      "y": 19.7917,
+      "id": "51"
     },
     {
       "style": "block",
@@ -290,20 +273,20 @@
       "inverted": true,
       "angle": 0,
       "x": 50,
-      "y": 26.7188,
-      "id": "4"
+      "y": 27.8646,
+      "id": "52"
     },
     {
       "style": "solid",
-      "length": 40,
+      "length": 80,
       "thickness": 8,
       "size": 40,
       "radius": 0,
       "inverted": true,
       "angle": 0,
       "x": 10,
-      "y": 35.7812,
-      "id": "7"
+      "y": 35.9375,
+      "id": "53"
     },
     {
       "style": "block",
@@ -314,20 +297,20 @@
       "inverted": true,
       "angle": 0,
       "x": 50,
-      "y": 43.2812,
-      "id": "8"
+      "y": 44.0104,
+      "id": "54"
     },
     {
       "style": "solid",
-      "length": 40,
+      "length": 90,
       "thickness": 8,
       "size": 40,
       "radius": 0,
       "inverted": true,
       "angle": 0,
       "x": 10,
-      "y": 52.3438,
-      "id": "11"
+      "y": 52.0833,
+      "id": "55"
     },
     {
       "style": "block",
@@ -338,20 +321,20 @@
       "inverted": true,
       "angle": 0,
       "x": 50,
-      "y": 59.8437,
-      "id": "12"
+      "y": 60.1562,
+      "id": "56"
     },
     {
       "style": "solid",
-      "length": 40,
+      "length": 100,
       "thickness": 8,
       "size": 40,
       "radius": 0,
       "inverted": true,
       "angle": 0,
       "x": 10,
-      "y": 68.9062,
-      "id": "15"
+      "y": 68.2292,
+      "id": "57"
     },
     {
       "style": "block",
@@ -362,32 +345,20 @@
       "inverted": true,
       "angle": 0,
       "x": 50,
-      "y": 76.4062,
-      "id": "16"
+      "y": 76.3021,
+      "id": "58"
     },
     {
       "style": "block",
-      "length": 100,
-      "thickness": 200,
+      "length": 122,
+      "thickness": 259,
       "size": 40,
       "radius": 0,
       "inverted": true,
       "angle": 0,
       "x": 50,
-      "y": 88.3333,
-      "id": "19"
-    },
-    {
-      "style": "solid",
-      "length": 23,
-      "thickness": 8,
-      "size": 40,
-      "radius": 0,
-      "inverted": false,
-      "angle": 0,
-      "x": 84,
-      "y": 89.9479,
-      "id": "20"
+      "y": 87,
+      "id": "59"
     }
   ],
   "logo": null,
