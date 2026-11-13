@@ -1,4 +1,13 @@
-import type { FontKey, FormatKey, IconKey, LineStyle, LogoDetail, ThemeKey } from './types';
+import type {
+  FieldType,
+  FontKey,
+  FormatKey,
+  IconKey,
+  LineStyle,
+  LogoDetail,
+  TextAlign,
+  ThemeKey,
+} from './types';
 
 export const FORMATS: Record<
   FormatKey,
@@ -42,6 +51,8 @@ export const ICON_GROUPS: {
     label: 'Salados',
     icons: [
       { key: 'medialuna', label: 'Medialuna' },
+      { key: 'pizza', label: 'Pizza' },
+      { key: 'cubiertos', label: 'Cubiertos' },
       { key: 'sandwich', label: 'Sándwich' },
       { key: 'empanada', label: 'Empanada' },
       { key: 'pan', label: 'Pan' },
@@ -52,6 +63,8 @@ export const ICON_GROUPS: {
     label: 'Dulces',
     icons: [
       { key: 'torta', label: 'Torta' },
+      { key: 'donut', label: 'Dona' },
+      { key: 'helado', label: 'Helado' },
       { key: 'cupcake', label: 'Cupcake' },
       { key: 'cookie', label: 'Cookie' },
       { key: 'alfajor', label: 'Alfajor' },
@@ -83,6 +96,7 @@ export const ICON_GROUPS: {
       { key: 'transferencia', label: 'Transferencia' },
       { key: 'telefono', label: 'Teléfono' },
       { key: 'redes', label: 'Redes' },
+      { key: 'whatsapp', label: 'WhatsApp' },
       { key: 'wifi', label: 'Wifi' },
     ],
   },
@@ -94,7 +108,16 @@ export const ICON_GROUPS: {
       { key: 'estrella', label: 'Estrella' },
       { key: 'corazon', label: 'Corazón' },
       { key: 'hoja', label: 'Hoja' },
+    ],
+  },
+  {
+    label: 'Clima',
+    icons: [
       { key: 'sol', label: 'Sol' },
+      { key: 'solNube', label: 'Sol y nubes' },
+      { key: 'nube', label: 'Nublado' },
+      { key: 'lluvia', label: 'Lluvia' },
+      { key: 'viento', label: 'Viento' },
     ],
   },
 ];
@@ -113,10 +136,36 @@ export const LOGO_DETAILS: { key: LogoDetail; label: string }[] = [
 
 export const LINE_STYLES: { key: LineStyle; label: string }[] = [
   { key: 'solid', label: 'Continua' },
+  { key: 'block', label: 'Bloque' },
   { key: 'dashed', label: 'Guiones' },
   { key: 'dotted', label: 'Puntos' },
   { key: 'wavy', label: 'Ondulada' },
   { key: 'zigzag', label: 'Zigzag' },
   { key: 'scallop', label: 'Festón' },
   { key: 'double', label: 'Doble' },
+];
+
+export const TEXT_ALIGNS: { key: TextAlign; label: string }[] = [
+  { key: 'left', label: 'Izquierda' },
+  { key: 'center', label: 'Centro' },
+  { key: 'right', label: 'Derecha' },
+];
+
+export const NO_TEMPLATE = '__none__';
+
+export const FIELD_TYPES: { key: FieldType; label: string }[] = [
+  { key: 'text', label: 'Texto corto' },
+  { key: 'multiline', label: 'Texto largo' },
+  { key: 'price', label: 'Precio' },
+];
+
+export const SHOW_LOGO = false;
+
+export const PHOTO_ASPECTS: { value: number; label: string }[] = [
+  { value: 0, label: 'Libre (proporción de la imagen)' },
+  { value: 1, label: 'Cuadrada 1:1' },
+  { value: 4 / 5, label: 'Vertical 4:5' },
+  { value: 9 / 16, label: 'Historia 9:16' },
+  { value: 3 / 2, label: 'Horizontal 3:2' },
+  { value: 16 / 9, label: 'Panorámica 16:9' },
 ];

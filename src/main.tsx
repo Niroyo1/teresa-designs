@@ -8,6 +8,7 @@ import './styles.css';
 import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import GeneradorPage from './generador/GeneradorPage';
+import ConstructorPage from './generador/ConstructorPage';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/generador" element={<GeneradorPage />} />
+        <Route path="/generador/constructor" element={<ConstructorPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

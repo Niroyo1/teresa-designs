@@ -1,7 +1,9 @@
-import { FONTS, FORMATS } from './constants';
+import { FORMATS } from './constants';
 import { drawIcon } from './icons';
+import { drawPhoto } from './photo';
 import { drawLine } from './lines';
 import { drawLogo, LOGO_TEXT, logoFont } from './logo';
+import { drawTextDecorations, fontSpec, layoutText } from './textLayout';
 import type {
   FormatKey,
   IconLayer,
@@ -14,11 +16,6 @@ import type {
 
 const cssColor = (name: string, fallback: string) =>
   getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
-
-const fontSpec = (layer: TextLayer) => {
-  const weight = FONTS.find((font) => font.key === layer.font)?.weight ?? 400;
-  return `${weight} ${layer.size}px "${layer.font}", sans-serif`;
-};
 
 export function loadImage(src: string) {
   return new Promise<HTMLImageElement>((resolve, reject) => {
@@ -61,54 +58,37 @@ export function renderImage(
   ctx.fillStyle = background;
   ctx.fillRect(0, 0, width, height);
 
-    if (photo) {
-    const centerX = (width * photo.x) / 100;
-    const centerY = (height * photo.y) / 100;
-    const size = (width * photo.scale) / 100;
-    const { naturalWidth, naturalHeight } = photo.image;
-
-    ctx.save();
-    ctx.beginPath();
-    if (photo.circle) {
-      const ratio = size / Math.min(naturalWidth, naturalHeight);
-      const drawWidth = naturalWidth * ratio;
-      const drawHeight = naturalHeight * ratio;
-      ctx.arc(centerX, centerY, size / 2, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.drawImage(
-        photo.image,
-        centerX - drawWidth / 2,
-        centerY - drawHeight / 2,
-        drawWidth,
-        drawHeight
-      );
-    } else {
-      const drawWidth = size;
-      const drawHeight = (size * naturalHeight) / naturalWidth;
-      const left = centerX - drawWidth / 2;
-      const top = centerY - drawHeight / 2;
-      const radius = (Math.min(drawWidth, drawHeight) / 2) * (photo.radius / 100);
-      ctx.roundRect(left, top, drawWidth, drawHeight, radius);
-      ctx.clip();
-      ctx.drawImage(photo.image, left, top, drawWidth, drawHeight);
-    }
-    ctx.restore();
-  }
+  if (photo && !photo.aboveLines) drawPhoto(ctx, photo, width, height, foreground);
 
   if (logo) drawLogo(ctx, logo, width, height, foreground);
-  lines.forEach((layer) => drawLine(ctx, layer, width, height, foreground));
-  icons.forEach((layer) => drawIcon(ctx, layer, width, height, foreground));
+  lines.forEach((layer) =>
+    drawLine(ctx, layer, width, height, layer.inverted ? background : foreground)
+  );
+  if (photo && photo.aboveLines) drawPhoto(ctx, photo, width, height, foreground);
+  icons.forEach((layer) =>
+    drawIcon(ctx, layer, width, height, layer.inverted ? background : foreground)
+  );
 
   ctx.fillStyle = foreground;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   texts.forEach((layer) => {
-    ctx.font = fontSpec(layer);
-    const lines = layer.text.split('\n');
-    const lineHeight = layer.size * 1.15;
+    const { lines, size } = layoutText(ctx, layer, width);
+    ctx.font = fontSpec(layer, size);
+    const lineHeight = size * 1.15;
     const startY = (height * layer.y) / 100 - ((lines.length - 1) * lineHeight) / 2;
+    ctx.lineWidth = (size * layer.bold) / 100;
+    ctx.lineJoin = 'round';
+    const textColor = layer.inverted ? background : foreground;
+    ctx.fillStyle = textColor;
+    ctx.strokeStyle = textColor;
+    ctx.textAlign = layer.align;
     lines.forEach((line, index) => {
-      ctx.fillText(line, (width * layer.x) / 100, startY + index * lineHeight);
+      const lineX = (width * layer.x) / 100;
+      const lineY = startY + index * lineHeight;
+      ctx.fillText(line, lineX, lineY);
+      if (layer.bold > 0) ctx.strokeText(line, lineX, lineY);
+      drawTextDecorations(ctx, layer, line, lineX, lineY, size, textColor);
     });
   });
 

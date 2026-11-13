@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/*Old green: 14583a*/
+/*New green: 3b5450*/
+
 @font-face {
   font-family: 'Roca Two';
   src: url('./fonts/RocaTwo-Bold.ttf') format('truetype');
@@ -16,7 +19,7 @@
 
 @theme {
   --color-cream: #f7f0e8;
-  --color-ink: #14583a;
+  --color-ink: #3b5450;
   --font-body: 'Poppins', sans-serif;
   --font-display: 'Six Caps', sans-serif;
   --font-title: 'Roca Two', serif;
@@ -39,6 +42,6 @@
 }
 
 [data-theme='inverted'] {
-  --color-cream: #14583a;
+  --color-cream: #3b5450;
   --color-ink: #f7f0e8;
 }

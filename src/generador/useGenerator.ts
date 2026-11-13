@@ -6,6 +6,7 @@ import type {
   LineLayer,
   LogoLayer,
   PhotoLayer,
+  Template,
   TextLayer,
   ThemeKey,
 } from './types';
@@ -17,6 +18,15 @@ const newText = (): TextLayer => ({
   text: 'Texto',
   font: 'Poppins',
   size: 80,
+  bold: 0,
+  inverted: false,
+  align: 'center',
+  isBold: false,
+  italic: false,
+  underline: false,
+  strike: false,
+  uppercase: false,
+  maxWidth: 0,
   x: 50,
   y: 50,
 });
@@ -28,6 +38,7 @@ const newIcon = (): IconLayer => ({
   x: 50,
   y: 50,
   stroke: 1.5,
+  inverted: false,
 });
 
 const newLine = (): LineLayer => ({
@@ -36,9 +47,25 @@ const newLine = (): LineLayer => ({
   length: 60,
   thickness: 8,
   size: 40,
+  radius: 0,
+  inverted: false,
   angle: 0,
   x: 50,
   y: 50,
+});
+
+const newPhotoSlot = (): PhotoLayer => ({
+  image: null,
+  scale: 80,
+  x: 50,
+  y: 50,
+  radius: 0,
+  circle: false,
+  aspect: 1,
+  zoom: 0,
+  aboveLines: false,
+  label: 'Imagen',
+  required: true,
 });
 
 const newLogo = (): LogoLayer => ({
@@ -64,13 +91,25 @@ export function useGenerator() {
     const url = URL.createObjectURL(file);
     const image = await loadImage(url);
     URL.revokeObjectURL(url);
-    setPhoto({ image, scale: 80, x: 50, y: 50, radius: 0, circle: false });
+    setPhoto({ image, scale: 80, x: 50, y: 50, radius: 0, circle: false, aspect: 0, zoom: 0, aboveLines: false });
   };
 
   const updatePhoto = (patch: Partial<Omit<PhotoLayer, 'image'>>) =>
     setPhoto((current) => (current ? { ...current, ...patch } : current));
 
   const removePhoto = () => setPhoto(null);
+
+  const addPhotoSlot = () => setPhoto(newPhotoSlot());
+
+  const setPhotoImage = async (file: File) => {
+    const url = URL.createObjectURL(file);
+    const image = await loadImage(url);
+    URL.revokeObjectURL(url);
+    setPhoto((current) => (current ? { ...current, image } : current));
+  };
+
+  const clearPhotoImage = () =>
+    setPhoto((current) => (current ? { ...current, image: null } : current));
 
   const addText = () => setTexts((current) => [...current, newText()]);
 
@@ -109,6 +148,15 @@ export function useGenerator() {
 
   const removeLogo = () => setLogo(null);
 
+  const loadTemplate = (template: Template) => {
+    setFormat(template.format);
+    setPhoto(template.photo ? { ...template.photo, image: null } : null);
+    setTexts(template.texts.map((layer) => ({ ...layer, id: String(nextId++) })));
+    setIcons(template.icons.map((layer) => ({ ...layer, id: String(nextId++) })));
+    setLines(template.lines.map((layer) => ({ ...layer, id: String(nextId++) })));
+    setLogo(template.logo);
+  };
+
   return {
     format,
     setFormat,
@@ -118,6 +166,9 @@ export function useGenerator() {
     addPhoto,
     updatePhoto,
     removePhoto,
+    addPhotoSlot,
+    setPhotoImage,
+    clearPhotoImage,
     texts,
     addText,
     updateText,
@@ -134,5 +185,6 @@ export function useGenerator() {
     addLogo,
     updateLogo,
     removeLogo,
+    loadTemplate,
   };
 }

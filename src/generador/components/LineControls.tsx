@@ -1,6 +1,7 @@
 import { LINE_STYLES } from '../constants';
 import type { LineLayer, LineStyle } from '../types';
 import Field from './Field';
+import InvertToggle from './InvertToggle';
 
 type Props = {
   lines: LineLayer[];
@@ -38,11 +39,21 @@ export default function LineControls({ lines, onAdd, onChange, onRemove }: Props
             ))}
           </select>
           <Field label="Largo" value={layer.length} min={2} max={150} onChange={(length) => onChange(layer.id, { length })} />
-          <Field label="Grosor" value={layer.thickness} min={1} max={80} onChange={(thickness) => onChange(layer.id, { thickness })} />
-          {layer.style !== 'solid' && (
+          <Field
+            label={layer.style === 'block' ? 'Alto' : 'Grosor'}
+            value={layer.thickness}
+            min={1}
+            max={layer.style === 'block' ? 2000 : 80}
+            onChange={(thickness) => onChange(layer.id, { thickness })}
+          />
+          {layer.style === 'block' && (
+            <Field label="Redondeo" value={layer.radius} min={0} max={100} onChange={(radius) => onChange(layer.id, { radius })} />
+          )}
+          {layer.style !== 'solid' && layer.style !== 'block' && (
             <Field label="Patrón" value={layer.size} min={8} max={200} onChange={(size) => onChange(layer.id, { size })} />
           )}
           <Field label="Ángulo" value={layer.angle} min={-180} max={180} onChange={(angle) => onChange(layer.id, { angle })} />
+          <InvertToggle checked={layer.inverted} onChange={(inverted) => onChange(layer.id, { inverted })} />
           <Field label="Posición X" value={layer.x} min={0} max={100} onChange={(x) => onChange(layer.id, { x })} />
           <Field label="Posición Y" value={layer.y} min={0} max={100} onChange={(y) => onChange(layer.id, { y })} />
         </div>

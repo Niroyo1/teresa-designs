@@ -4,6 +4,8 @@ export type FontKey = 'Poppins' | 'Six Caps' | 'Roca Two' | 'Gala';
 
 export type ThemeKey = 'default' | 'inverted';
 
+export type TextAlign = 'left' | 'center' | 'right';
+
 export type IconKey =
   | 'taza'
   | 'cafeFrio'
@@ -39,13 +41,22 @@ export type IconKey =
   | 'transferencia'
   | 'telefono'
   | 'redes'
+  | 'whatsapp'
   | 'wifi'
   | 'flor'
   | 'novedades'
   | 'estrella'
   | 'corazon'
   | 'hoja'
-  | 'sol';
+  | 'sol'
+  | 'solNube'
+  | 'nube'
+  | 'lluvia'
+  | 'viento'
+  | 'donut'
+  | 'helado'
+  | 'pizza'
+  | 'cubiertos';
 
 export type LogoDetail =
   | 'none'
@@ -58,22 +69,59 @@ export type LogoDetail =
   | 'sparkle'
   | 'tagline';
 
+export type FieldType = 'text' | 'multiline' | 'price';
+
+export type TextField = {
+  id: string;
+  label: string;
+  type: FieldType;
+  required: boolean;
+};
+
 export type TextLayer = {
   id: string;
   text: string;
   font: FontKey;
   size: number;
+  bold: number;
+  inverted: boolean;
+  align: TextAlign;
+  isBold: boolean;
+  italic: boolean;
+  underline: boolean;
+  strike: boolean;
+  uppercase: boolean;
+  maxWidth: number;
+  field?: TextField;
   x: number;
   y: number;
 };
 
 export type PhotoLayer = {
-  image: HTMLImageElement;
+  image: HTMLImageElement | null;
   scale: number;
   x: number;
   y: number;
   radius: number;
   circle: boolean;
+  aspect: number;
+  zoom: number;
+  aboveLines: boolean;
+  label?: string;
+  required?: boolean;
+};
+
+export type PhotoSlot = {
+  label: string;
+  required: boolean;
+  scale: number;
+  x: number;
+  y: number;
+  radius: number;
+  circle: boolean;
+  aspect: number;
+  zoom: number;
+  aboveLines: boolean;
 }
 
 export type IconLayer = {
@@ -83,9 +131,10 @@ export type IconLayer = {
   x: number;
   y: number;
   stroke: number;
+  inverted: boolean;
 };
 
-export type LineStyle = 'solid' | 'dashed' | 'dotted' | 'wavy' | 'zigzag' | 'scallop' | 'double';
+export type LineStyle = 'solid' | 'block' | 'dashed' | 'dotted' | 'wavy' | 'zigzag' | 'scallop' | 'double';
 
 export type LogoLayer = {
   font: FontKey;
@@ -103,7 +152,20 @@ export type LineLayer = {
   length: number;
   thickness: number;
   size: number;
+  radius: number;
+  inverted: boolean;
   angle: number;
   x: number;
   y: number;
+};
+
+export type Template = {
+  id: string;
+  label: string;
+  format: FormatKey;
+  texts: TextLayer[];
+  icons: IconLayer[];
+  lines: LineLayer[];
+  logo: LogoLayer | null;
+  photo: PhotoSlot | null;
 };

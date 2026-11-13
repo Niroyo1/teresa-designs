@@ -20,6 +20,15 @@ export function drawLine(
   ctx.lineJoin = 'round';
   ctx.beginPath();
 
+  if (layer.style === 'block') {
+    const radius = (Math.min(length, thickness) / 2) * (layer.radius / 100);
+    ctx.fillStyle = color;
+    ctx.roundRect(-half, -thickness / 2, length, thickness, radius);
+    ctx.fill();
+    ctx.restore();
+    return;
+  }
+
   if (layer.style === 'solid') {
     ctx.moveTo(-half, 0);
     ctx.lineTo(half, 0);

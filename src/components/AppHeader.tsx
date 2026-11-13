@@ -15,7 +15,7 @@ export default function AppHeader() {
         <span className="font-display text-4xl uppercase leading-none">{menu.brand.name}</span>
         <nav className="flex gap-5">
           <NavLink to="/" end className={linkClass}>
-            Menú
+            Cartas
           </NavLink>
           <NavLink to="/generador" className={linkClass}>
             Generador

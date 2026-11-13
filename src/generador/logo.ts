@@ -82,6 +82,7 @@ export function drawLogo(
         x: (x / width) * 100,
         y: (y / height) * 100,
         stroke: (lineWidth * 24) / iconSize,
+        inverted: false,
       },
       width,
       height,

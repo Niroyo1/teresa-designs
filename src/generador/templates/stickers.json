@@ -1,0 +1,107 @@
+{
+  "id": "stickers",
+  "label": "Stickers",
+  "format": "highlight",
+  "texts": [
+    {
+      "id": "2",
+      "text": "Teresa",
+      "font": "Gala",
+      "size": 325,
+      "bold": 1,
+      "inverted": false,
+      "align": "center",
+      "isBold": false,
+      "italic": false,
+      "underline": false,
+      "strike": false,
+      "uppercase": false,
+      "maxWidth": 0,
+      "x": 50,
+      "y": 45
+    },
+    {
+      "id": "10",
+      "text": "San Jacinto, Canelones",
+      "font": "Poppins",
+      "size": 50,
+      "bold": 0,
+      "inverted": false,
+      "align": "center",
+      "isBold": false,
+      "italic": false,
+      "underline": false,
+      "strike": false,
+      "uppercase": false,
+      "maxWidth": 0,
+      "x": 53,
+      "y": 57
+    },
+    {
+      "id": "12",
+      "text": "teresa.pasteleria.sj",
+      "font": "Poppins",
+      "size": 50,
+      "bold": 0,
+      "inverted": false,
+      "align": "center",
+      "isBold": false,
+      "italic": false,
+      "underline": false,
+      "strike": false,
+      "uppercase": false,
+      "maxWidth": 0,
+      "x": 50,
+      "y": 62
+    },
+    {
+      "id": "14",
+      "text": "099 992 209",
+      "font": "Poppins",
+      "size": 49,
+      "bold": 0,
+      "inverted": false,
+      "align": "center",
+      "isBold": false,
+      "italic": false,
+      "underline": false,
+      "strike": false,
+      "uppercase": false,
+      "maxWidth": 0,
+      "x": 50,
+      "y": 67
+    }
+  ],
+  "icons": [
+    {
+      "id": "4",
+      "icon": "ubicacion",
+      "size": 7,
+      "x": 22.5,
+      "y": 56.6,
+      "stroke": 1,
+      "inverted": false
+    },
+    {
+      "id": "6",
+      "icon": "redes",
+      "size": 6,
+      "x": 24.5,
+      "y": 61.8,
+      "stroke": 1,
+      "inverted": false
+    },
+    {
+      "id": "8",
+      "icon": "whatsapp",
+      "size": 6.5,
+      "x": 32,
+      "y": 66.8,
+      "stroke": 1,
+      "inverted": false
+    }
+  ],
+  "lines": [],
+  "logo": null,
+  "photo": null
+}
