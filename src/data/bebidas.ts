@@ -34,7 +34,7 @@ export const bebidas: MenuPage = {
         {
           name: 'Frappe/Licuado',
           price: 170,
-          description: 'Naranja/Agua/Leche',
+          description: 'De naranja, agua o leche',
           options: [
             'Frutilla',
             'Frutos Rojos',
