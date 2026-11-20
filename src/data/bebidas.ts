@@ -24,6 +24,9 @@ export const bebidas: MenuPage = {
     {
       title: 'Otros',
       items: [
+        { name: 'Orange expresso', price: 180 },
+        { name: 'Caramel macchiato', price: 185 },
+        { name: 'Moka iced', price: 185 },
         { name: 'Té Twinings', price: 110 },
         { name: 'Té con leche', price: 150 },
         { name: 'Submarino', price: 185, description: 'Chocolate con leche' },
@@ -31,8 +34,8 @@ export const bebidas: MenuPage = {
         {
           name: 'Frappe/Licuado',
           price: 170,
+          description: 'Naranja/Agua/Leche',
           options: [
-            'Naranja/Agua/Leche',
             'Frutilla',
             'Frutos Rojos',
             'Detox (verdes)',
