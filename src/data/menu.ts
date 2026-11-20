@@ -8,7 +8,7 @@ export const menu: Menu = {
   brand: {
     name: 'Teresa',
     address: [
-      'María Vera S/N, Ent. Cayetano Gonzalez y Av. Artigas.',
+      'María Vera S/N, Ent. Cayetano González y Av. Artigas.',
       'San Jacinto, Canelones',
     ],
   },

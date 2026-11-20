@@ -32,7 +32,7 @@ export const comidas: MenuPage = {
           price: 130,
           options: [
             'Pan de queso, queso de untar, jamón y queso de sándwich. A la plancha.',
-            'Pan de queso, queso de untar, queso sándwich y cherrys. A la plancha.',
+            'Pan de queso, queso de untar, queso sándwich y tomates cherry. A la plancha.',
           ],
         },
         {

@@ -9,22 +9,22 @@ export const bebidas: MenuPage = {
     {
       title: 'Café',
       items: [
-        { name: 'Expresso', price: 85, description: '1 medida café' },
-        { name: 'Doble Expresso', price: 125, description: '2 medidas café' },
+        { name: 'Espresso', price: 85, description: '1 medida café' },
+        { name: 'Doble Espresso', price: 125, description: '2 medidas café' },
         { name: 'Americano', price: 130, description: '2 medidas café y agua' },
         { name: 'Cortado', price: 140, description: '2 medidas café y 1 medida leche' },
-        { name: 'Lagrima', price: 130, description: 'Leche y un toque de café' },
+        { name: 'Lágrima', price: 130, description: 'Leche y un toque de café' },
         { name: 'Latte', price: 150, description: '2 medidas café y 2 medidas leche' },
         { name: 'Capuchino', price: 165, description: '1 medida café, leche y espuma' },
         { name: 'Moka', price: 190, description: '2 medidas café, 2 medidas leche y chocolate' },
-        { name: 'Americano Frio', price: 150, description: '2 medidas café, agua y hielo' },
-        { name: 'Latte Frio', price: 170, description: '2 medidas café, 2 medidas leche y hielo' },
+        { name: 'Americano Frío', price: 150, description: '2 medidas café, agua y hielo' },
+        { name: 'Latte Frío', price: 170, description: '2 medidas café, 2 medidas leche y hielo' },
       ],
     },
     {
       title: 'Otros',
       items: [
-        { name: 'Orange expresso', price: 180 },
+        { name: 'Orange espresso', price: 180 },
         { name: 'Caramel macchiato', price: 185 },
         { name: 'Moka iced', price: 185 },
         { name: 'Té Twinings', price: 110 },
@@ -32,12 +32,12 @@ export const bebidas: MenuPage = {
         { name: 'Submarino', price: 185, description: 'Chocolate con leche' },
         { name: 'Jugo de naranja', price: 110 },
         {
-          name: 'Frappe/Licuado',
+          name: 'Frappé/Licuado',
           price: 170,
           description: 'De naranja, agua o leche',
           options: [
             'Frutilla',
-            'Frutos Rojos',
+            'Frutos rojos',
             'Detox (verdes)',
             'Durazno',
             'Banana y arándanos',
