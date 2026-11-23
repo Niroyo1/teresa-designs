@@ -86,7 +86,7 @@ export const comidas: MenuPage = {
         {
           name: 'Alfajor especial',
           price: 95,
-          description: 'Consultar opciones de la semana',
+          description: 'Consultar opciones semanales',
           options: [
             'Limón y frutos rojos',
             'Alfacookie vainilla y DDL',
