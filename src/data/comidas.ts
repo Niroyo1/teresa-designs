@@ -66,6 +66,7 @@ export const comidas: MenuPage = {
           name: 'Cookie',
           suffix: 'x1/x2',
           price: '$45/$80',
+          description: 'Consultar opciones rellenas',
           options: [
             'Vainilla c/chips de chocolate',
             'Chocolate c/chips blancas',

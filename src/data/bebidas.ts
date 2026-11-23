@@ -19,14 +19,14 @@ export const bebidas: MenuPage = {
         { name: 'Moka', price: 190, description: '2 medidas café, 2 medidas leche y chocolate' },
         { name: 'Americano Frío', price: 150, description: '2 medidas café, agua y hielo' },
         { name: 'Latte Frío', price: 170, description: '2 medidas café, 2 medidas leche y hielo' },
+        { name: 'Orange espresso', price: 180, description: '2 medidas de café, jugo de naranja y hielo' },
+        { name: 'Caramel macchiato', price: 185, description: '2 medidas de café, leche, salsa de caramelo y hielo' },
+        { name: 'Moka iced', price: 185, description: '2 medidas de cafe, leche, salsa de chocolate y hielo' },
       ],
     },
     {
       title: 'Otros',
       items: [
-        { name: 'Orange espresso', price: 180 },
-        { name: 'Caramel macchiato', price: 185 },
-        { name: 'Moka iced', price: 185 },
         { name: 'Té Twinings', price: 110 },
         { name: 'Té con leche', price: 150 },
         { name: 'Submarino', price: 185, description: 'Chocolate con leche' },
