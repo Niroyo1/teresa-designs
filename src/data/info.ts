@@ -4,7 +4,6 @@ export const info: InfoPage = {
   id: 'info',
   label: 'Info',
   layout: 'info',
-  theme: 'inverted',
   hideFooter: true,
   panelText: 'Teresa',
   groups: [
